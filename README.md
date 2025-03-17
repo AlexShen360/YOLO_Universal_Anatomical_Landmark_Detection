@@ -18,7 +18,7 @@ Detecting anatomical landmarks in medical images plays an essential role in unde
 
 ## Getting Started
 ### Installation
-- Install python packages`
+- Install python packages
 ```bash
 pip3 install -r requirements.txt
 ```
@@ -125,6 +125,7 @@ python3 evaluation.py -i ../runs/GU2Net_runs/results/test_epochxxx
 python3 main.py -d ../runs -r GU2Net -p test -C config.yaml -m gln -l u2net -n chest cephalometric hand -c best.pt
 python3 evaluation.py -i ../runs/GU2Net/results/test_epoch067
 ```
+[!NOTE] The argument `-n name_list` should be consistent when training and testing. The `best.pt` is trained with the argument `-n chest cephalometric chest`, which should be used with the same argument when testing. Alternatively you can use different `-n data1 data2` to retrain and test GU2Net.
 
 ## Citation
 ```
