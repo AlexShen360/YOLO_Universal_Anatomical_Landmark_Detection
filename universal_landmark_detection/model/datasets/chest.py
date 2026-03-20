@@ -90,7 +90,7 @@ class Chest(data.Dataset):
         # channel x width x height: 1 x width x height
         if arr.ndim == 3:
             arr = arr[..., 0]
-        arr = np.expand_dims(np.transpose(arr, (1, 0)), 0).astype(np.float)
+        arr = np.expand_dims(np.transpose(arr, (1, 0)), 0).astype(np.float64)
         # conveting to float is important, otherwise big bug occurs
         for i in range(arr.shape[0]):
             arr[i] = (arr[i]-arr[i].mean())/(arr[i].std()+1e-20)

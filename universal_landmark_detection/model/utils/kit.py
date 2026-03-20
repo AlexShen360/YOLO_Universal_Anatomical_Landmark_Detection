@@ -66,7 +66,7 @@ def gaussianHeatmap(sigma, dim: int = 2, nsigma: int = 3):
     radius = round(nsigma*sigma)
     center = tuple([radius for i in range(dim)])
     mask_shape = tuple([2*radius for i in range(dim)])
-    mask = np.zeros(mask_shape, dtype=np.float)
+    mask = np.zeros(mask_shape, dtype=np.float64)
     sig2 = sigma**2
     coef = sigma*np.sqrt(2*np.pi)
     for p in product(*[range(i) for i in mask_shape]):
@@ -75,7 +75,7 @@ def gaussianHeatmap(sigma, dim: int = 2, nsigma: int = 3):
     mask = (mask-mask.min())/(mask.max()-mask.min()) # necessary?, yes, the output heatmap is processed with sigmoid
 
     def genHeatmap(point, shape):
-        ret = np.zeros(shape, dtype=np.float)
+        ret = np.zeros(shape, dtype=np.float64)
         bboxs = [(max(0, point[ax]-radius), min(shape[ax], point[ax]+radius))
                  for ax in range(dim)]
         img_sls = tuple([slice(i, j) for i, j in bboxs])
