@@ -4,7 +4,7 @@ GLN(
       (conv): Conv2d(1, 64, kernel_size=(1, 1), stride=(1, 1))
     )
     (out0): OutConv(
-      (conv): Conv2d(64, 6, kernel_size=(1, 1), stride=(1, 1))
+      (conv): Conv2d(64, 10, kernel_size=(1, 1), stride=(1, 1))
     )
     (conv): DoubleConv(
       (dwise1): ModuleList(
@@ -270,10 +270,10 @@ GLN(
       (conv): Conv2d(1, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
     )
     (in_local0): myConv2d(
-      (conv): Conv2d(6, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (conv): Conv2d(10, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
     )
     (out0): myConv2d(
-      (conv): Conv2d(128, 6, kernel_size=(1, 1), stride=(1, 1))
+      (conv): Conv2d(128, 10, kernel_size=(1, 1), stride=(1, 1))
     )
     (convs0): Sequential(
       (0): dilatedConv(
