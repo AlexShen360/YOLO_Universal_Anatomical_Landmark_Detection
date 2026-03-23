@@ -72,7 +72,7 @@ def visualMultiChannel(img, col_num=5):
     padding = 10
     N1 = n1*row_num+(row_num+1)*padding
     N2 = n2*col_num+(col_num+1)*padding
-    out = np.zeros((N1, N2), dtype=np.float)
+    out = np.zeros((N1, N2), dtype=np.float64)
     beg1 = padding
     for i in range(row_num):
         beg2 = padding
