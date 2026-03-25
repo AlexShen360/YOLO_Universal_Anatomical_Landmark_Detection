@@ -98,7 +98,7 @@ class Hip(data.Dataset):
         '''Read image from .npy file and return a numpy.ndarray in shape of cxwxh
         '''
         # Load .npy file
-        arr = np.load(path)
+        arr = np.load(path, allow_pickle=True)
         origin_size = arr.shape[:2]  # (height, width)
         
         # Resize to target size

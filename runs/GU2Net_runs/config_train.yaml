@@ -72,7 +72,7 @@ dataset: !!python/object:model.utils.yamlConfig.EasyDict
     hip: !!python/object:model.utils.yamlConfig.EasyDict
       opt:
         num_landmark: 10
-        prefix: C:/GitHub/coronal_AP/training_dataset
+        prefix: F:\AS\Hip_AP_Xray\runtime_evaluation_dataset
         sigma: 5
         size:
         - 512
@@ -83,7 +83,7 @@ dataset: !!python/object:model.utils.yamlConfig.EasyDict
     - 1
     - 1
     name_list:
-    - hip
+    - chest
 display_freq: 2
 epochs: 100
 eval_freq: 2

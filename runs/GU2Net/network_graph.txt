@@ -1,0 +1,306 @@
+GLN(
+  (localNet): U2Net(
+    (in0): OutConv(
+      (conv): Conv2d(1, 64, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (out0): OutConv(
+      (conv): Conv2d(64, 10, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (conv): DoubleConv(
+      (dwise1): ModuleList(
+        (0): dwise(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+        )
+      )
+      (dwise2): ModuleList(
+        (0): dwise(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+        )
+      )
+      (pwise1): pwise(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (pwise2): pwise(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (bn1): ModuleList(
+        (0): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (bn2): ModuleList(
+        (0): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (relu1): LeakyReLU(negative_slope=0.01, inplace=True)
+      (relu2): LeakyReLU(negative_slope=0.01, inplace=True)
+    )
+    (down1): Down(
+      (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (conv): DoubleConv(
+        (dwise1): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          )
+        )
+        (dwise2): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          )
+        )
+        (pwise1): pwise(
+          (conv1): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (pwise2): pwise(
+          (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (bn1): ModuleList(
+          (0): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn2): ModuleList(
+          (0): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu1): LeakyReLU(negative_slope=0.01, inplace=True)
+        (relu2): LeakyReLU(negative_slope=0.01, inplace=True)
+      )
+    )
+    (down2): Down(
+      (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (conv): DoubleConv(
+        (dwise1): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          )
+        )
+        (dwise2): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          )
+        )
+        (pwise1): pwise(
+          (conv1): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (pwise2): pwise(
+          (conv1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (bn1): ModuleList(
+          (0): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn2): ModuleList(
+          (0): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu1): LeakyReLU(negative_slope=0.01, inplace=True)
+        (relu2): LeakyReLU(negative_slope=0.01, inplace=True)
+      )
+    )
+    (down3): Down(
+      (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (conv): DoubleConv(
+        (dwise1): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          )
+        )
+        (dwise2): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          )
+        )
+        (pwise1): pwise(
+          (conv1): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (pwise2): pwise(
+          (conv1): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (bn1): ModuleList(
+          (0): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn2): ModuleList(
+          (0): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu1): LeakyReLU(negative_slope=0.01, inplace=True)
+        (relu2): LeakyReLU(negative_slope=0.01, inplace=True)
+      )
+    )
+    (down4): Down(
+      (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (conv): DoubleConv(
+        (dwise1): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          )
+        )
+        (dwise2): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          )
+        )
+        (pwise1): pwise(
+          (conv1): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (pwise2): pwise(
+          (conv1): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (bn1): ModuleList(
+          (0): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn2): ModuleList(
+          (0): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu1): LeakyReLU(negative_slope=0.01, inplace=True)
+        (relu2): LeakyReLU(negative_slope=0.01, inplace=True)
+      )
+    )
+    (up1): Up(
+      (up): Upsample(scale_factor=2.0, mode=bilinear)
+      (conv): DoubleConv(
+        (dwise1): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024)
+          )
+        )
+        (dwise2): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          )
+        )
+        (pwise1): pwise(
+          (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (pwise2): pwise(
+          (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (bn1): ModuleList(
+          (0): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn2): ModuleList(
+          (0): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu1): LeakyReLU(negative_slope=0.01, inplace=True)
+        (relu2): LeakyReLU(negative_slope=0.01, inplace=True)
+      )
+    )
+    (up2): Up(
+      (up): Upsample(scale_factor=2.0, mode=bilinear)
+      (conv): DoubleConv(
+        (dwise1): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          )
+        )
+        (dwise2): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          )
+        )
+        (pwise1): pwise(
+          (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (pwise2): pwise(
+          (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (bn1): ModuleList(
+          (0): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn2): ModuleList(
+          (0): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu1): LeakyReLU(negative_slope=0.01, inplace=True)
+        (relu2): LeakyReLU(negative_slope=0.01, inplace=True)
+      )
+    )
+    (up3): Up(
+      (up): Upsample(scale_factor=2.0, mode=bilinear)
+      (conv): DoubleConv(
+        (dwise1): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          )
+        )
+        (dwise2): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          )
+        )
+        (pwise1): pwise(
+          (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (pwise2): pwise(
+          (conv1): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (bn1): ModuleList(
+          (0): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn2): ModuleList(
+          (0): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu1): LeakyReLU(negative_slope=0.01, inplace=True)
+        (relu2): LeakyReLU(negative_slope=0.01, inplace=True)
+      )
+    )
+    (up4): Up(
+      (up): Upsample(scale_factor=2.0, mode=bilinear)
+      (conv): DoubleConv(
+        (dwise1): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          )
+        )
+        (dwise2): ModuleList(
+          (0): dwise(
+            (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          )
+        )
+        (pwise1): pwise(
+          (conv1): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (pwise2): pwise(
+          (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (bn1): ModuleList(
+          (0): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bn2): ModuleList(
+          (0): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu1): LeakyReLU(negative_slope=0.01, inplace=True)
+        (relu2): LeakyReLU(negative_slope=0.01, inplace=True)
+      )
+    )
+  )
+  (globalNet): globalNet(
+    (in0): myConv2d(
+      (conv): Conv2d(1, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (in_local0): myConv2d(
+      (conv): Conv2d(10, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (out0): myConv2d(
+      (conv): Conv2d(128, 10, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (convs0): Sequential(
+      (0): dilatedConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (1): dilatedConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): dilatedConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(5, 5), dilation=(5, 5))
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): dilatedConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): dilatedConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+  )
+)
