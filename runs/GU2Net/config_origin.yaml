@@ -63,7 +63,7 @@ dataset:
             - CHNCXR_0276_0
             - CHNCXR_0303_0
     hip:
-        prefix: 'F:\AS\Hip_AP_Xray\runtime_evaluation_dataset'
+        prefix: '../data/hip'
         sigma: 5
         num_landmark: 10
         size: [512, 512] # resize

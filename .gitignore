@@ -129,4 +129,6 @@ dmypy.json
 .pyre/
 
 # dataset
-data/
+runs/
+evaluation/
+hip_visualizations/
