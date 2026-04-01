@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 
 # dataset
-runs/
+runs/GU2Net
+runs/GU2Net_runs/results
 evaluation/
 hip_visualizations/
