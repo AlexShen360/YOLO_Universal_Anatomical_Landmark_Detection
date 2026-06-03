@@ -1,0 +1,171 @@
+cephalometric_net: !!python/object:model.utils.yamlConfig.EasyDict
+  opt:
+    in_channels: 1
+    out_channels: 19
+checkpoint: rD:\Github\YOLO_Universal_Anatomical_Landmark_Detection\runs\GU2Net_runs\checkpoints\best_GU2Net_runs_epoch070_train8010.007955_val1169.139548.pt
+chest_net: !!python/object:model.utils.yamlConfig.EasyDict
+  opt:
+    in_channels: 1
+    out_channels: 6
+cuda_devices: '0'
+dataloader: !!python/object:model.utils.yamlConfig.EasyDict
+  opt:
+    test: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        batch_size: 1
+        shuffle: true
+    train: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        batch_size: 1
+        drop_last: true
+        shuffle: true
+    validate: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        batch_size: 1
+        drop_last: true
+        shuffle: true
+dataset: !!python/object:model.utils.yamlConfig.EasyDict
+  opt:
+    batch_size_dic: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        cephalometric: 4
+        chest: 8
+        hand: 4
+        hip: 8
+    cephalometric: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        num_landmark: 19
+        prefix: ../data/ISBI2015_ceph
+        sigma: 3
+        size:
+        - 416
+        - 512
+    chest: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        chest_set:
+        - CHN
+        exclude_list:
+        - CHNCXR_0059_0
+        - CHNCXR_0178_0
+        - CHNCXR_0228_0
+        - CHNCXR_0267_0
+        - CHNCXR_0295_0
+        - CHNCXR_0310_0
+        - CHNCXR_0285_0
+        - CHNCXR_0276_0
+        - CHNCXR_0303_0
+        num_landmark: 6
+        prefix: ../data/chest
+        sigma: 3
+        size:
+        - 512
+        - 512
+        use_abnormal: false
+    hand: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        num_landmark: 37
+        prefix: ../data/hand
+        sigma: 3
+        size:
+        - 368
+        - 512
+    hip: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        num_landmark: 10
+        prefix: data/hip
+        sigma: 5
+        size:
+        - 512
+        - 512
+    loss_weights:
+    - 1
+    - 1
+    - 1
+    - 1
+    name_list:
+    - chest
+display_freq: 2
+epochs: 100
+eval_freq: 2
+gln: !!python/object:model.utils.yamlConfig.EasyDict
+  opt:
+    globalNet_params: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        dilations:
+        - 1
+        - 2
+        - 5
+        - 2
+        - 1
+        kernel_size: 3
+        scale_factor: 0.25
+    localNet: u2net
+gln2: !!python/object:model.utils.yamlConfig.EasyDict
+  opt:
+    globalNet_params: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        dilations:
+        - 1
+        - 2
+        - 5
+        - 2
+        - 1
+        kernel_size: 3
+        scale_factor: 0.25
+    localNet: u2net
+hand_net: !!python/object:model.utils.yamlConfig.EasyDict
+  opt:
+    in_channels: 1
+    out_channels: 37
+hip_net: !!python/object:model.utils.yamlConfig.EasyDict
+  opt:
+    in_channels: 1
+    out_channels: 10
+learning: !!python/object:model.utils.yamlConfig.EasyDict
+  opt:
+    adam: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        lr: 0.0001
+        weight_decay: 0.0001
+    bce: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        reduction: sum
+    cycliclr: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        base_lr: 0.0001
+        cycle_momentum: false
+        max_lr: 0.01
+        mode: triangular2
+        step_size_down: 2000
+        step_size_up: 2000
+    l1: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        reduction: sum
+    l2: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        reduction: sum
+    loss: bce
+    optim: adam
+    scheduler: cycliclr
+    steplr: !!python/object:model.utils.yamlConfig.EasyDict
+      opt:
+        gamma: 0.5
+        step_size: 30
+    use_scheduler: true
+mix_step: 1
+model: gln
+run_dir: ../runs
+run_name: GU2Net_runs
+save_freq: 0
+seed: 42
+transform_params: !!python/object:model.utils.yamlConfig.EasyDict
+  opt:
+    angle: 2
+    axis: 1
+    flip_rate: 0
+    offsets:
+    - 10
+    - 10
+    rotate_rate: 0.1
+    translate_rate: 0.1
+use_background_channel: false

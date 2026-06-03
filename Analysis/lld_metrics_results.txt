@@ -1,0 +1,6 @@
+LLD Measurement Metrics (mm):
+==============================
+             Method  MAE (mm)  MD (mm)  Std Dev (mm)
+               ASIS    7.1306   0.3985       18.3750
+           Teardrop    6.8979  -3.3009       14.6986
+ Ischial Tuberosity    6.8059   1.5329       37.9200

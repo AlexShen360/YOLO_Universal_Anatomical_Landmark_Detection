@@ -29,9 +29,9 @@ dataset: !!python/object:model.utils.yamlConfig.EasyDict
     batch_size_dic: !!python/object:model.utils.yamlConfig.EasyDict
       opt:
         cephalometric: 4
-        chest: 4
+        chest: 8
         hand: 4
-        hip: 4
+        hip: 8
     cephalometric: !!python/object:model.utils.yamlConfig.EasyDict
       opt:
         num_landmark: 19

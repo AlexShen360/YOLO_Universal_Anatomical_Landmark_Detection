@@ -29,9 +29,9 @@ dataset:
     loss_weights: [1, 1, 1, 1, ]
     batch_size_dic: # this will override that of data_loader in train stage
         hand: 4
-        chest: 4
+        chest: 8
         cephalometric: 4
-        hip: 4
+        hip: 8
 
     hand:
         prefix: '../data/hand'

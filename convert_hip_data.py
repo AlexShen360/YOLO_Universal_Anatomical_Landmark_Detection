@@ -44,7 +44,7 @@ def convert_csv_to_txt(csv_path, output_path, image_width=1024, image_height=102
 
 def main():
     # Source and target directories
-    source_dir = r"F:\AS\Hip_AP_Xray\runtime_evaluation_dataset"
+    source_dir = r"D:\processed_files"
     target_base_dir = r"C:\GitHub\YOLO_Universal_Anatomical_Landmark_Detection\data\hip"
     
     # Create target directories
